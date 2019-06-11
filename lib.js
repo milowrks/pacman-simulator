@@ -15,18 +15,17 @@
 // ?? "Pacman that is not on the grid can choose the ignore the MOVE, LEFT, RIGHT and REPORT commands."
 // ?? "The first valid command to Pacman is a PLACE command, after that, any sequence of commands may be issued, in any order, including another PLACE command."
 
-var directions = ["NORTH", "EAST", "SOUTH", "WEST"] // improve from using global scope
-
 class Pacman {
 
   constructor(x, y, f) {
     this.x = null
     this.y = null
     this.f = null
+    this.directions = ["NORTH", "EAST", "SOUTH", "WEST"]
   }
 
   isPlaceValid(x, y, f) {
-    return x >= 0 && x <= 5 && y >= 0 && y <= 5 && directions.includes(f.toUpperCase())
+    return x >= 0 && x <= 5 && y >= 0 && y <= 5 && this.directions.includes(f.toUpperCase())
   }
 
   place(x, y, f) {
@@ -53,20 +52,20 @@ class Pacman {
 
   left() {
     if (this.hasPlace()) {
-      if (this.f === directions.slice(0).shift()) {
-        this.f = directions.slice(0).pop()
+      if (this.f === this.directions.slice(0).shift()) {
+        this.f = this.directions.slice(0).pop()
       } else {
-        this.f = directions[directions.indexOf(this.f) - 1]
+        this.f = this.directions[this.directions.indexOf(this.f) - 1]
       }
     }
   }
 
   right() {
     if (this.hasPlace()) {
-      if (this.f === directions.slice(0).pop()) {
-        this.f = directions.slice(0).shift()
+      if (this.f === this.directions.slice(0).pop()) {
+        this.f = this.directions.slice(0).shift()
       } else {
-        this.f = directions[directions.indexOf(this.f) + 1]
+        this.f = this.directions[this.directions.indexOf(this.f) + 1]
       }
     }
   }
