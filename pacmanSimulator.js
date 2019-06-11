@@ -20,9 +20,11 @@ function main() {
   rl.prompt()
   
   rl.on('line', (line) => {
-    switch(line.trim()) {
-      case "PLACE 0,0,NORTH":
-        p.place(0,0,"NORTH")
+    let [command, coordinates] = line.trim().split(" ")
+    switch(command) {
+      case "PLACE":
+        let [x, y, f] = coordinates.split(",")
+        p.place(x, y, f)
         break
       case "MOVE":
         p.move()
