@@ -29,11 +29,11 @@ If the command entered is valid, the program will execute the command and displa
 
 ## Development
 
-### Notes
+The current state of the program is based on my efforts within 24hrs. 
 
-- The possible directions of movement are initialized as an instance property of `Pacman`.
-- `isPlaceValid` and `hasPlace` methods validate the commands as per the rules set out in the problem description.
-- Test cases for both valid and invalid commands are provided in `lib.test.js`.
+The library module `lib.js` is complete, addressing the requirements in the problem description, as can be demonstrated by running the test file. Test cases for both valid, invalid and multiple steps including a mix of both are provided in `lib.test.js`.
+
+The CLI interface `pacmanSimulator.js` needs improvement, mainly in the area of input validation. I am working on improving the validating conditions to handle illegal inputs.
 
 ### To Do
 
