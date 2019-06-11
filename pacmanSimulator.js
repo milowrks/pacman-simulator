@@ -23,20 +23,29 @@ function main() {
     let [command, coordinates] = line.trim().split(" ")
     switch(command) {
       case "PLACE":
-        let [x, y, f] = coordinates.split(",")
-        p.place(x, y, f)
+        if (coordinates) {
+          let [x, y, f] = coordinates.split(",")
+          p.place(x, y, f)
+          console.log('Pacman has been placed.')
+        }
         break
       case "MOVE":
         p.move()
+        console.log('Pacman has moved by one unit.')
         break
       case "LEFT":
         p.left()
+        console.log('Pacman has rotated left.')
         break
       case "RIGHT":
         p.right()
+        console.log('Pacman has rotated right.')
         break
       case "REPORT":
-        console.log(p.report())
+        let currentCoordinates = p.report()
+        if (currentCoordinates) {
+          console.log(p.report())
+        }
         break
       default:
         console.log("Please enter a valid command.")
