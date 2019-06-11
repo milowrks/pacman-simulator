@@ -27,31 +27,21 @@ function main() {
         if (coordinates) {
           let [x, y, f] = coordinates.split(",")
           p.place(x, y, f)
-          console.log('Pacman has been placed.')
         }
         break
       case "MOVE":
         p.move()
-        let newCoordinates = p.report()
-        if (coordinates === newCoordinates && newCoordinates) {
-          console.log('Pacman has moved by one unit.')
-        }
         break
       case "LEFT":
         p.left()
-        if (coordinates) {
-          console.log('Pacman has rotated left.')
-        }
         break
       case "RIGHT":
         p.right()
-        if (coordinates) {
-          console.log('Pacman has rotated right.')
-        }
         break
       case "REPORT":
-        if (coordinates) {
-          console.log(p.report())
+        let result = p.report()
+        if (result) {
+          console.log(result)
         }
         break
       default:
