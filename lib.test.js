@@ -18,19 +18,19 @@ test('Pacman can be placed', () => {
   expect(p.f).toBe("NORTH")
 })
 
-test('Pacman cannot be placed outside grid', () => {
+test('Pacman cannot be placed beyond grid width', () => {
   let p = new Pacman
   p.place(6, 0, "north")
   expect(p.report()).toBe(undefined)
 })
 
-test('Pacman cannot be placed outside grid', () => {
+test('Pacman cannot be placed with negative coordinates', () => {
   let p = new Pacman
   p.place(3, -2, "east")
   expect(p.report()).toBe(undefined)
 })
 
-test('Pacman cannot be placed outside grid', () => {
+test('Pacman cannot be placed beyond grid height', () => {
   let p = new Pacman
   p.place(1, 7, "east")
   expect(p.report()).toBe(undefined)
@@ -143,4 +143,15 @@ test('cannot move west outside of grid', () => {
   p.place(0, 3, "west")
   p.move()
   expect(p.report()).toBe("0,3,WEST")
+})
+
+// multi-steps
+
+test('pacman can continue to receive commands after an invalid command', () => {
+  let p = new Pacman
+  p.place(1, 0, "west")
+  p.move()
+  p.move()
+  p.right()
+  expect(p.report()).toBe("0,0,NORTH")
 })
