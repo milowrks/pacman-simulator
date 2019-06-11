@@ -4,7 +4,11 @@
 
 ### To Do
 
-- [] Test multiple-step operations.
+- [ ] Refactor commands.js as a module.
+- [ ] Write unit test for command validation.
+- [ ] Test multiple-step operations.
+- [ ] Make `directions` an instance property or use another class.
+- [ ] Maybe make Board a class and pass in to `move()`.
 
 ### To Revise
 
