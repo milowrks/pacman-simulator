@@ -21,6 +21,7 @@ function main() {
   
   rl.on('line', (line) => {
     let [command, coordinates] = line.trim().split(" ")
+    
     switch(command) {
       case "PLACE":
         if (coordinates) {
@@ -31,19 +32,25 @@ function main() {
         break
       case "MOVE":
         p.move()
-        console.log('Pacman has moved by one unit.')
+        let newCoordinates = p.report()
+        if (coordinates === newCoordinates && newCoordinates) {
+          console.log('Pacman has moved by one unit.')
+        }
         break
       case "LEFT":
         p.left()
-        console.log('Pacman has rotated left.')
+        if (coordinates) {
+          console.log('Pacman has rotated left.')
+        }
         break
       case "RIGHT":
         p.right()
-        console.log('Pacman has rotated right.')
+        if (coordinates) {
+          console.log('Pacman has rotated right.')
+        }
         break
       case "REPORT":
-        let currentCoordinates = p.report()
-        if (currentCoordinates) {
+        if (coordinates) {
           console.log(p.report())
         }
         break
