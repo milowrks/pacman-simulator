@@ -25,7 +25,7 @@ Quit the program by pressing `Ctrl + D`.
 
 You will be prompted to enter one of the available commands (`PLACE`, `MOVE`, `LEFT`, `RIGHT` or `REPORT`. The prompt will continue after each command, until you quit the program.
 
-If the command entered is valid, the program will execute the command and display a message in confirmation. Otherwise, it will ignore the command and no confirmation message is shown in the Terminal.
+If the command entered is valid, the program will execute the command. Otherwise, it will ignore the command.
 
 ## Development
 
@@ -33,7 +33,7 @@ The current state of the program is based on my efforts within 24hrs.
 
 The library module `lib.js` is complete, addressing the requirements in the problem description, as can be demonstrated by running the test file. Test cases for both valid, invalid and multiple steps including a mix of both are provided in `lib.test.js`.
 
-The CLI interface `pacmanSimulator.js` needs improvement, mainly in the area of input validation. I am working on improving the validating conditions to handle illegal inputs.
+The CLI interface `pacmanSimulator.js` needs improvement, mainly in the area of input validation. Right now it simply ignores any invalid commands. I would like to validate the format of the input before trying to execute them.
 
 ### To Do
 
