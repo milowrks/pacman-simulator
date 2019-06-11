@@ -17,10 +17,10 @@
 
 class Pacman {
 
-  constructor(x, y, f) {
+  constructor() {
     this.x = null
     this.y = null
-    this.f = null
+    this.facing = null
     this.directions = ["NORTH", "EAST", "SOUTH", "WEST"]
   }
 
@@ -32,47 +32,47 @@ class Pacman {
     if (this.isPlaceValid(x, y, f)) {
       this.x = x
       this.y = y
-      this.f = f.toUpperCase()
+      this.facing = f.toUpperCase()
     }
   }
 
   hasPlace() {
-    return this.x !== null && this.y !== null && this.f !== null
+    return this.x !== null && this.y !== null && this.facing !== null
   }
 
   move() {
     if (this.hasPlace()) {
-      (this.f === "NORTH" && this.y < 5) ? this.y++ 
-      : (this.f === "EAST" && this.x < 5) ? this.x++ 
-      : (this.f === "SOUTH" && this.y > 0) ? this.y = this.y - 1
-      : (this.f === "WEST" && this.x > 0) ? this.x = this.x - 1
+      (this.facing === "NORTH" && this.y < 5) ? this.y++ 
+      : (this.facing === "EAST" && this.x < 5) ? this.x++ 
+      : (this.facing === "SOUTH" && this.y > 0) ? this.y = this.y - 1
+      : (this.facing === "WEST" && this.x > 0) ? this.x = this.x - 1
       : null
     }
   }
 
   left() {
     if (this.hasPlace()) {
-      if (this.f === this.directions.slice(0).shift()) {
-        this.f = this.directions.slice(0).pop()
+      if (this.facing === this.directions.slice(0).shift()) {
+        this.facing = this.directions.slice(0).pop()
       } else {
-        this.f = this.directions[this.directions.indexOf(this.f) - 1]
+        this.facing = this.directions[this.directions.indexOf(this.facing) - 1]
       }
     }
   }
 
   right() {
     if (this.hasPlace()) {
-      if (this.f === this.directions.slice(0).pop()) {
-        this.f = this.directions.slice(0).shift()
+      if (this.facing === this.directions.slice(0).pop()) {
+        this.facing = this.directions.slice(0).shift()
       } else {
-        this.f = this.directions[this.directions.indexOf(this.f) + 1]
+        this.facing = this.directions[this.directions.indexOf(this.facing) + 1]
       }
     }
   }
 
   report() {
     if (this.hasPlace()) {
-      return `${this.x},${this.y},${this.f}`
+      return `${this.x},${this.y},${this.facing}`
     }  
   }
 

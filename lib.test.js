@@ -5,7 +5,7 @@ test('can make a Pacman instance', () => {
   let p = new Pacman
   expect(p.x).toBe(null)
   expect(p.y).toBe(null)
-  expect(p.f).toBe(null)
+  expect(p.facing).toBe(null)
 })
 
 // place
@@ -15,7 +15,7 @@ test('Pacman can be placed', () => {
   p.place(0, 0, "north")
   expect(p.x).toBe(0)
   expect(p.y).toBe(0)
-  expect(p.f).toBe("NORTH")
+  expect(p.facing).toBe("NORTH")
 })
 
 test('Pacman cannot be placed beyond grid width', () => {
@@ -54,21 +54,21 @@ test('Location can be reported', () => {
 test('ignore left if Pacman is not placed', () => {
   let p = new Pacman
   p.left()
-  expect(p.f).toBe(null)
+  expect(p.facing).toBe(null)
 })
 
 test('can rotate north to west', () => {
   let p = new Pacman
   p.place(0, 0, "north")
   p.left()
-  expect(p.f).toBe("WEST")
+  expect(p.facing).toBe("WEST")
 })
 
 test('can rotate south to east', () => {
   let p = new Pacman
   p.place(0, 0, "south")
   p.left()
-  expect(p.f).toBe("EAST")
+  expect(p.facing).toBe("EAST")
 })
 
 // right
@@ -77,14 +77,14 @@ test('can rotate north to east', () => {
   let p = new Pacman
   p.place(0, 0, "north")
   p.right()
-  expect(p.f).toBe("EAST")
+  expect(p.facing).toBe("EAST")
 })
 
 test('can rotate west to north', () => {
   let p = new Pacman
   p.place(0, 0, "west")
   p.right()
-  expect(p.f).toBe("NORTH")
+  expect(p.facing).toBe("NORTH")
 })
 
 // move
